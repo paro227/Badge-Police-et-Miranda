@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'freshmannormal';
+  src: url('freshman-webfont.woff2') format('woff2'),
+       url('freshman-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+#miranda{
+  display: none;
+}
+#miranda .contenair{
+  padding: 25px;
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  background-color: #f2f2f2;
+  height: 100x;
+  width: 350px;
+  border: 2px solid black;
+
+}	
+
+#miranda .contenair h1 {
+  text-align: center;
+  font-family: 'freshmannormal';
+  font-size: 25px;
+  color: aliceblue;
+  background-color: blue;
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+	
+#miranda .contenair p {
+	text-align: center;
+	font-family: sans-serif;
+  }
+	  
+  
+.div { overflow:hidden; }

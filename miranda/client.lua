@@ -1,0 +1,40 @@
+RegisterCommand('miranda', function()
+  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+Citizen.CreateThread(function()
+    local display = true
+    local startTime = GetGameTimer()
+    local delay = 120000
+
+    TriggerEvent('miranda:display', true)
+
+    while display do
+      Citizen.Wait(1)
+      ShowInfo('Appuyez sur ~INPUT_CONTEXT~ pour fermer le menu.', 0)
+      if (GetTimeDifference(GetGameTimer(), startTime) > delay) then
+        display = false
+        TriggerEvent('miranda:display', false)
+      end
+      if (IsControlJustPressed(1, 51)) then
+        display = false
+        TriggerEvent('miranda:display', false)
+      end
+    end
+  end)
+end)
+
+RegisterNetEvent('miranda:display')
+AddEventHandler('miranda:display', function(value)
+  SendNUIMessage({
+    type = "miranda",
+    display = value
+  })
+end)
+
+function ShowInfo(text, state)
+  SetTextComponentFormat("STRING")
+  AddTextComponentString(text)
+  DisplayHelpTextFromStringLabel(0, state, 0, -1)
+end
+
+
